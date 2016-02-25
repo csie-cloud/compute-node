@@ -10,5 +10,7 @@ class compute_node(
   class{ 'compute_node::nova': 
     manage_ip => $manage_ip,
   }
-  
+  class{ 'compute_node::neutron':
+    external_ip => $ovs_external_ip
+  }
 }
