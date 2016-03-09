@@ -14,6 +14,9 @@ $controller_host = 'controller3' )
     vncproxy_host => "${controller_host}-int",
     vncproxy_protocol => 'vnc'
   }
+
+  class{ 'nova::compute::libvirt':
+  }
   
   class{ 'nova::network::neutron':
     neutron_admin_password => $::password::neutron,    
