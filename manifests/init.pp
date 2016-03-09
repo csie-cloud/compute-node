@@ -2,7 +2,6 @@ class compute_node(
   String $ovs_external_ip,
   String $manage_ip )
 {
-
   include ::password
   package{'centos-release-openstack-liberty':
     ensure => present,
