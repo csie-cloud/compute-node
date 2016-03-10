@@ -11,11 +11,13 @@ $controller_host = 'controller3' )
   
   class{ 'nova::compute':
     vncserver_proxyclient_address => $manage_ip,
-    vncproxy_host => "${controller_host}-int",
-    vncproxy_protocol => 'vnc'
+    vncproxy_host => "${controller_host}.cloud.csie.ntu.edu.tw",
+    vncproxy_protocol => 'http'
   }
 
   class{ 'nova::compute::libvirt':
+    libvirt_inject_key => true,
+    vncserver_listen => '0.0.0.0',
   }
   
   class{ 'nova::network::neutron':
