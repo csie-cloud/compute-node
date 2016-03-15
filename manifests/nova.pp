@@ -16,6 +16,7 @@ $controller_host = 'controller3' )
   }
 
   class{ 'nova::compute::libvirt':
+    require => Class['neutron::agents::ml2::ovs'],
     libvirt_inject_key => true,
     vncserver_listen => '0.0.0.0',
   }
