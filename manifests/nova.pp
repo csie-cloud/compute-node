@@ -1,5 +1,5 @@
 class compute_node::nova( String $manage_ip,
-$controller_host = 'controller3' )
+$controller_host = 'controller' )
 {
   
   class{ 'nova':
