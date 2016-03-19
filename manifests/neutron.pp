@@ -1,4 +1,4 @@
-class compute_node::neutron( $external_ip, $controller_host = 'controller3' ) {
+class compute_node::neutron( $management_ip, $controller_host = 'controller' ) {
 
   service { 'NetworkManager':
     ensure => stopped
@@ -33,7 +33,7 @@ class compute_node::neutron( $external_ip, $controller_host = 'controller3' ) {
     bridge_uplinks => ['br-ext:em3','br-int:em2'],
     enable_tunneling => true,
     tunnel_types => ['vxlan'],
-    local_ip => $external_ip,
+    local_ip => $management_ip,
     l2_population => true,
     arp_responder => true,
     enable_distributed_routing => true  

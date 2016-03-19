@@ -1,5 +1,4 @@
 class compute_node(
-  String $ovs_external_ip,
   String $manage_ip )
 {
   include ::password
@@ -10,6 +9,6 @@ class compute_node(
     manage_ip => $manage_ip,
   }
   class{ 'compute_node::neutron':
-    external_ip => $ovs_external_ip
+    management_ip => $manage_ip
   }
 }
